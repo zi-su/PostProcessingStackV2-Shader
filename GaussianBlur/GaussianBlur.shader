@@ -4,8 +4,8 @@
 
 #include "Packages/com.unity.postprocessing/PostProcessing/Shaders/StdLib.hlsl"
 
-		TEXTURE2D_SAMPLER2D(_MainTex, sampler_MainTex);
-		TEXTURE2D_SAMPLER2D(_GrabTex, sampler_GrabTex);
+	TEXTURE2D_SAMPLER2D(_MainTex, sampler_MainTex);
+	TEXTURE2D_SAMPLER2D(_GrabTex, sampler_GrabTex);
 	float4 _MainTex_TexelSize;
 	int _SamplingCount = 11;
 	int _Sigma = 7;
@@ -69,14 +69,14 @@
 		}
 		return color / (z);
 	}
-		ENDHLSL
+	ENDHLSL
 
 
-		SubShader
+	SubShader
 	{
 		Cull Off ZWrite Off ZTest Always
 
-			Pass
+		Pass
 		{
 			HLSLPROGRAM
 
@@ -85,8 +85,10 @@
 
 			ENDHLSL
 		}
-			GrabPass{"_GrabTex"}
-			Pass
+
+		GrabPass{"_GrabTex"}
+
+		Pass
 		{
 			HLSLPROGRAM
 

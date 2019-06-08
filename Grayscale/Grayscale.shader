@@ -4,7 +4,7 @@
 
 #include "Packages/com.unity.postprocessing/PostProcessing/Shaders/StdLib.hlsl"
 
-		TEXTURE2D_SAMPLER2D(_MainTex, sampler_MainTex);
+	TEXTURE2D_SAMPLER2D(_MainTex, sampler_MainTex);
 	TEXTURE2D_SAMPLER2D(_GrabTex, sampler_GrabTex);
 	float _Blend;
 
@@ -21,30 +21,17 @@
 		float4 color = SAMPLE_TEXTURE2D(_GrabTex, sampler_GrabTex, i.texcoord);
 		return color + float4(1.0,0.0,0.0,0.0);
 	}
-		ENDHLSL
+	ENDHLSL
 
-		SubShader
+	SubShader
 	{
 		Cull Off ZWrite Off ZTest Always
-
-			Pass
+		Pass
 		{
-			Name "Hoge"
 			HLSLPROGRAM
 
 				#pragma vertex VertDefault
 				#pragma fragment Frag
-
-			ENDHLSL
-		}
-			GrabPass{"_GrabTex"}
-			Pass
-		{
-			Name "Hoge1"
-			HLSLPROGRAM
-
-				#pragma vertex VertDefault
-				#pragma fragment Frag2
 
 			ENDHLSL
 		}
