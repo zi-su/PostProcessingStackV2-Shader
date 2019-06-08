@@ -24,7 +24,5 @@ public sealed class GrayscaleRenderer : PostProcessEffectRenderer<Grayscale>
         if(_sheet == null) _sheet = context.propertySheets.Get(_shader);
         _sheet.properties.SetFloat("_Blend", settings.blend);
         context.command.BlitFullscreenTriangle(context.source, context.destination, _sheet, 0);
-        //context.command.BlitFullscreenTriangle(context.source, context.destination, _sheet, 1);
-        //context.command.BlitFullscreenTriangle(context.source, context.destination, _sheet, 2);
     }
 }
